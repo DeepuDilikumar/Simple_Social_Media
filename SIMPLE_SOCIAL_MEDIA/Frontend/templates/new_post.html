@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block title%} Create New Post {%endblock%}
+
+{%block first%}
+
+    
+        <center> <h1> CREATE NEW POST! </h1> </center>
+        <br><br><br>
+
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}<br><br>
+            {% endfor %}
+        {% endif %}
+
+        <form name = 'new_post' method = 'POST' action = '' enctype='multipart/form-data'>
+            {% csrf_token %}
+            Enter title: <input type = 'text' name = 'title'><br><br>
+            Enter description: <br>
+            <textarea name = 'description' rows = '10' cols = '100'></textarea><br><br>
+
+            Select Images to be uploaded: <input type = 'file' name = 'image'><br><br><br>
+
+            <button type="submit" class="btn btn-primary">POST NOW!</button>
+        
+        </form>
+
+    {%endblock%}

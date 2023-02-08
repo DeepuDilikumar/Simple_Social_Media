@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block title%} Create New Account! {%endblock%}
+
+{%block first%}
+
+        {% if messages %}
+            {% for message in messages %}
+               {{ message }}
+            {% endfor %}
+        {% endif %}
+
+        <center><h1> Create New Account! </h1></center>
+        
+        <form name = 'new_account' method = 'POST' action = ''>
+            {%csrf_token%}
+
+            Enter username: <input type = 'text' name = 'username' required><br><br>
+            Enter email:    <input type = 'email' name = 'email'><br><br>
+
+            Enter password: <input type = 'password' name = 'password1' required><br><br>
+            Re-type password: <input type = 'password' name = 'password2' required> <br><br>
+            <button type="submit" class="btn btn-primary">Create My Account!</button>
+        </form>
+
+{%endblock%}

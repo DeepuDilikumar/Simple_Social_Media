@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block title%} Login! {%endblock%}
+
+{%block first%}
+
+    {%for message in messages%}
+        <script> alert('{{message}}') </script>
+    {%endfor%}
+
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+
+    <pre>
+    <center><h1> Welcome to a Simplified Social Media </h1></center>
+
+    <form name = 'new_account' method = 'POST' action = ''>
+        {%csrf_token%}
+
+        Enter username: <input type = 'text' name = 'username' required> <br>
+        Enter password: <input type = 'password' name = 'password' required>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+        
+    </form>
+    </pre>
+
+{%endblock%}
